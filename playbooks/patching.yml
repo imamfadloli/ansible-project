@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Run Ubuntu patching
+      import_tasks: ../roles/patching/tasks/ubuntu.yml
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Run Fedora patching
+      import_tasks: ../roles/patching/tasks/fedora.yml
+      when: ansible_distribution == "Fedora"

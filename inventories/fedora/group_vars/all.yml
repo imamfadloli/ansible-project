@@ -1,0 +1,2 @@
+ansible_user: adminuser
+ansible_ssh_pass: password123

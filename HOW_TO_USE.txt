@@ -1,0 +1,33 @@
+HOW TO USE — Ansible Day-to-Day Workspace
+
+1. Install Ansible:
+   sudo apt install ansible    # Ubuntu/Debian
+   sudo dnf install ansible    # Fedora/RHEL
+
+2. Cek versi Ansible:
+   ansible --version
+
+3. Edit inventory sesuai server:
+   inventories/ubuntu/hosts.yml
+   inventories/ubuntu/group_vars/all.yml
+   inventories/fedora/hosts.yml
+   inventories/fedora/group_vars/all.yml
+
+4. Menjalankan playbook:
+   # Test ping
+   ansible-playbook -i inventories/ubuntu/hosts.yml playbooks/ping_test.yml
+   ansible-playbook -i inventories/fedora/hosts.yml playbooks/ping_test.yml
+
+   # Create user & group
+   ansible-playbook -i inventories/ubuntu/hosts.yml playbooks/create_user_group.yml
+   ansible-playbook -i inventories/fedora/hosts.yml playbooks/create_user_group.yml
+
+   # Patching
+   ansible-playbook -i inventories/ubuntu/hosts.yml playbooks/patching.yml
+   ansible-playbook -i inventories/fedora/hosts.yml playbooks/patching.yml
+
+5. Tips:
+   - Gunakan ansible.cfg untuk set default inventory
+   - Gunakan ansible-vault untuk amankan password
+   - Tes koneksi cepat:
+     ansible all -i inventories/ubuntu/hosts.yml -m ping
