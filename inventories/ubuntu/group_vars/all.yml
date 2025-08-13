@@ -1,2 +1,2 @@
-ansible_user: adminuser
-ansible_ssh_pass: password123
+ansible_user: root
+ansible_ssh_pass: Kalik0tes
